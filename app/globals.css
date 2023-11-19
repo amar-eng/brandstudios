@@ -25,3 +25,19 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+@keyframes lightningColorAnimation {
+  0% {
+    color: #dacbcb;
+  }
+  50% {
+    color: #462d2d; /* Adjust the target color as needed */
+  }
+  100% {
+    color: #dc2626;
+  }
+}
+
+.animate-lightning {
+  animation: lightningColorAnimation 1s infinite;
+}
