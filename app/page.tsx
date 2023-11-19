@@ -3,6 +3,7 @@
 import {
   BarChartIcon,
   CodeIcon,
+  ComponentBooleanIcon,
   Cross1Icon,
   HeartFilledIcon,
   SpeakerLoudIcon,
@@ -17,6 +18,40 @@ export default function Home() {
   const handleConsultationClick = () => {
     setShowCalendly(true);
   };
+
+  const contentData = [
+    {
+      header: 'Branding',
+      bulletPoints: ['Market Research', 'Brand Strategy', 'Visual Identity'],
+      icon: <HeartFilledIcon color="red" />,
+    },
+    {
+      header: 'Development',
+
+      bulletPoints: ['Web Design', 'App Development', 'E-commerce Solutions'],
+      icon: <CodeIcon color="red" />,
+    },
+
+    {
+      header: 'Analytics',
+      bulletPoints: [
+        'User Behavior Evaluation',
+        'Performance Monitoring',
+        'SEO Analysis',
+      ],
+      icon: <BarChartIcon color="red" />,
+    },
+    {
+      header: 'Marketing',
+      bulletPoints: [
+        'Digital Marketing Campaigns',
+        'Social Media Management',
+        'Content Marketing',
+      ],
+      icon: <SpeakerLoudIcon color="red" />,
+    },
+  ];
+
   return (
     <main className="flex min-h-screen flex-col items-center justify-between mt-2  lg:p-24">
       <div className="z-10 max-w-5xl w-full items-center justify-between text-sm lg:flex">
@@ -55,57 +90,28 @@ export default function Home() {
       </div>
 
       <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <div className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30">
-          <h2 className={`mb-3 text-2xl font-semibold flex items-center`}>
-            <span className="mr-2">
-              <HeartFilledIcon color="red" />
-            </span>
-            Branding
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50 text-left`}>
-            Using the latest digital marketing techniques, we garuntee a
-            noticable jump in your business!
-          </p>
-        </div>
+        {contentData.map((data, index) => (
+          <div
+            key={index}
+            className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
+          >
+            <h2 className={`mb-3 text-3xl font-semibold flex items-center`}>
+              <span className="mr-2 ">{data.icon}</span>
+              {data.header}
+            </h2>
 
-        <div className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30">
-          <h2 className={`mb-3 text-2xl font-semibold flex items-center`}>
-            <span className="mr-2">
-              <BarChartIcon color="red" />
-            </span>
-            Analytics
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50 text-left`}>
-            Using the latest digital marketing techniques, we garuntee a
-            noticable jump in your business!
-          </p>
-        </div>
-
-        <div className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30">
-          <h2 className={`mb-3 text-2xl font-semibold flex items-center`}>
-            <span className="mr-2">
-              <SpeakerLoudIcon color="red" />
-            </span>
-            Marketing
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50 text-left`}>
-            Using the latest digital marketing techniques, we garuntee a
-            noticable jump in your business!
-          </p>
-        </div>
-
-        <div className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30">
-          <h2 className={`mb-3 text-2xl font-semibold flex items-center`}>
-            <span className="mr-2">
-              <CodeIcon color="red" />
-            </span>
-            Development
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50 text-left`}>
-            Using the latest digital marketing techniques, we garuntee a
-            noticable jump in your business!
-          </p>
-        </div>
+            <ul className="list-disc list-inside mt-2 font-light text-sm">
+              {data.bulletPoints.map((point, pointIndex) => (
+                <li key={pointIndex} className=" py-2 flex items-center ">
+                  <span className="mr-2">
+                    <ComponentBooleanIcon color="#AC0000" />
+                  </span>
+                  {point}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
       </div>
     </main>
   );
