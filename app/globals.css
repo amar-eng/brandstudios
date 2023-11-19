@@ -28,13 +28,13 @@ body {
 
 @keyframes lightningColorAnimation {
   0% {
-    color: #dacbcb;
+    color: #dc2626;
   }
   50% {
     color: #462d2d; /* Adjust the target color as needed */
   }
   100% {
-    color: #dc2626;
+    color: #dacbcb;
   }
 }
 
