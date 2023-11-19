@@ -100,7 +100,7 @@ export default function Home() {
               {data.header}
             </h2>
 
-            <ul className="list-disc list-inside mt-2 font-light text-sm">
+            <ul className="list-disc list-inside mt-2 font-light text-sm opacity-80">
               {data.bulletPoints.map((point, pointIndex) => (
                 <li key={pointIndex} className=" py-2 flex items-center ">
                   <span className="mr-2">
